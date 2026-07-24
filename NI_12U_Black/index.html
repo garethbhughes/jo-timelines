@@ -35,16 +35,27 @@ h2 { font-size:14px; text-transform:uppercase; letter-spacing:.06em; color:var(-
   font-size:12px; color:var(--sub); }
 .fineprint a { color:var(--teal); }
 .back { font-size:13px; color:var(--teal); text-decoration:none; }
+.viewbar { margin-top:10px; font-size:13px; color:var(--sub); display:flex; align-items:center; gap:8px; }
+.viewbar label { font-weight:600; text-transform:uppercase; letter-spacing:.06em; font-size:11px; }
+.viewbar select { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:8px;
+  background:#fff; color:var(--ink); }
+.viewpane[hidden] { display:none; }
 </style></head><body><div class="wrap">
 <a class="back" href="../">← all North Irvine teams</a>
 <header class="site" style="margin-top:8px"><p class="eyebrow">2026 USA Water Polo Junior Olympics — Session 2</p>
 <h1>North Irvine 12U Black boys</h1>
 <p class="stamp"><b>12U boys championship</b> · seed 5<br>
-Last verified against the master schedule at Thursday July 23, 8:15 PM</p></header>
+Last verified against the master schedule at Thursday July 23, 8:19 PM</p>
+<div class="viewbar"><label for="viewsel">View</label>
+<select id="viewsel" onchange="switchView(this.value)"><option value="vertical">Vertical (this &amp; next day)</option><option value="wide">Wide view (landscape)</option></select></div></header>
 
-<img class="tl" src="portrait.png" alt="Upcoming games timeline for North Irvine 12U Black boys">
-<h2>Wide view</h2>
-<div class="scroll"><img src="landscape.png" alt="Landscape timeline"></div>
-<h2>Change log</h2><ul class="log"><li><time>7:30 PM</time>Game 58 set: vs Smac Black, 7:30 pm at SAN CLEMENTE HS.</li><li><time>7:17 PM</time>Game 54 set: vs San Clemente RED, 6:40 pm at SAN CLEMENTE HS.</li><li><time>5:25 PM</time>Game 10 result in: won 26–1 (vs Topaz Tsunami).</li><li><time>5:25 PM</time>Game 34 result in: won 14–8 (vs 908 Yellow).</li><li><time>5:25 PM</time>Game 34 time changed to 1:40 pm (vs 908 Yellow).</li><li><time>5:25 PM</time>Game 38 result in: lost 4–19 (vs South Coast).</li><li><time>5:25 PM</time>Game 54 set: vs loser of gm 42, 6:40 pm at SAN CLEMENTE HS.</li><li><time>5:25 PM</time>Game 58 set: vs winner of gm 46, 7:30 pm at SAN CLEMENTE HS.</li><li><time>8:42 AM</time>Game 10 result in: won 12–4 (vs Topaz Tsunami).</li><li><time>8:42 AM</time>Game 34 time changed to 2:00 pm (vs winner of gm 14).</li></ul>
+<div id="view-vertical" class="viewpane"><img class="tl" src="portrait.png" alt="Upcoming games timeline for North Irvine 12U Black boys"></div><div id="view-wide" class="viewpane" hidden><div class="scroll"><img src="landscape.png" alt="Landscape timeline"></div></div>
+
 <div class="fineprint"><p><b>Results so far:</b> gm 10: won 26–1 vs Topaz Tsunami; gm 34: won 14–8 vs 908 Yellow.</p><p><b>Live scores:</b> <a href="https://kahunaevents.org">HOT! Results</a> · <a href="https://gols.co/2026-usawp-junior-olympics-session-2/">streams</a>.</p><p><b>Source:</b> <a href="https://usawaterpolo.org/sports/2018/12/19/junior-olympics.aspx#schedule">USA Water Polo — Junior Olympics schedule</a>, tab “12U_M_Champ”. Auto-generated — always confirm against the official schedule.</p></div>
-</div></body></html>
+</div>
+<script>
+function switchView(v){
+  document.querySelectorAll('.viewpane').forEach(function(p){ p.hidden = (p.id !== 'view-'+v); });
+}
+</script>
+</body></html>
